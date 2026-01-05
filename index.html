@@ -1,66 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Help Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Help Portal</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background-color: #f2f6ff;
-            padding: 40px;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f6ff;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
 
-        h1 {
-            color: #2c3e50;
-        }
+    h1 {
+      color: #1e40af;
+      margin-bottom: 5px;
+    }
 
-        p {
-            font-size: 18px;
-        }
+    p {
+      color: #555;
+      margin-bottom: 25px;
+    }
 
-        button {
-            padding: 12px 25px;
-            font-size: 16px;
-            margin: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-        footer {
-            margin-top: 50px;
-            color: gray;
-            font-size: 14px;
-        }
-    </style>
+    .card h2 {
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    .btn-group {
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 12px 22px;
+      margin: 8px;
+      font-size: 16px;
+      background-color: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #16a34a;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: gray;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
+  <div class="container">
+
     <h1>📘 Student Help Portal</h1>
-    <p>Helping students of Class 6 to 9</p>
+    <p>Helping students of Class 6 to 9 study better</p>
 
-    <button onclick="location.href='class6.html'">Class 6</button>
-    <button onclick="location.href='class7.html'">Class 7</button>
-    <button onclick="location.href='class8.html'">Class 8</button>
-    <button onclick="location.href='class9.html'">Class 9</button>
-<button onclick="location.href='about.html'">About Us</button>
+    <div class="card">
+      <h2>📗 Class 6</h2>
+      <p>Basic concepts, chapters and project ideas</p>
+      <div class="btn-group">
+        <button onclick="location.href='class6.html'">Open Class 6</button>
+      </div>
+    </div>
 
-    <br><br>
-    <button onclick="location.href='projects.html'">Projects</button>
+    <div class="card">
+      <h2>📘 Class 7</h2>
+      <p>Important chapters, practice topics and projects</p>
+      <div class="btn-group">
+        <button onclick="location.href='class7.html'">Open Class 7</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📙 Class 8</h2>
+      <p>NCERT-based topics for exam preparation</p>
+      <div class="btn-group">
+        <button onclick="location.href='class8.html'">Open Class 8</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📕 Class 9</h2>
+      <p>Foundation for boards with clear explanations</p>
+      <div class="btn-group">
+        <button onclick="location.href='class9.html'">Open Class 9</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>💡 Projects</h2>
+      <p>Simple and creative school project ideas</p>
+      <button onclick="location.href='projects.html'">View Projects</button>
+    </div>
 
     <footer>
-        <p>Made by Bratatee | Student Project</p>
+      <p>Made by Bratatee | Student Project</p>
     </footer>
+
+  </div>
 
 </body>
 </html>
