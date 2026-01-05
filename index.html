@@ -1,198 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Help Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Learning Hub</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f6ff;
-      text-align: center;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #1e40af;
-      margin-bottom: 5px;
-    }
-
-    p {
-      color: #555;
-      margin-bottom: 25px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 15px 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .card h2 {
-      color: #2563eb;
-      margin-bottom: 10px;
-    }
-
-    .btn-group {
-      margin-top: 15px;
-    }
-
-    button {
-      padding: 12px 22px;
-      margin: 8px;
-      font-size: 16px;
-      background-color: #22c55e;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #16a34a;
-    }
-
-    footer {
-      margin-top: 40px;
-      color: gray;
-      font-size: 14px;
-    }
-    .card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-   button {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-button:active {
-  transform: scale(0.96);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-} 
-    /* Page load animation */
-
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #f2f6ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+/* Header */
+header {
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: white;
+  text-align: center;
+  padding: 30px 10px;
+  animation: slideDown 1s ease;
 }
 
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 6px solid #dbe3ff;
-  border-top: 6px solid #2563eb;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+header h1 {
+  margin: 0;
+  font-size: 28px;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
+header p {
+  margin-top: 8px;
+  font-size: 14px;
 }
 
-.fade-delay-1 { animation-delay: 0.2s; }
-.fade-delay-2 { animation-delay: 0.4s; }
-.fade-delay-3 { animation-delay: 0.6s; }
-.fade-delay-4 { animation-delay: 0.8s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Container */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
-  </style>
+
+/* Cards */
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  animation: fadeIn 1s ease;
+}
+
+.section h2 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+
+ul {
+  padding-left: 18px;
+}
+
+li {
+  margin: 6px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #1565c0;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.button {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background: #2e7d32;
+  color: white;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(15px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 15px;
+}
+</style>
 </head>
 
 <body>
-  <div id="loader">
-  <div class="spinner"></div>
+
+<header>
+  <h1>📘 Student Learning Hub</h1>
+  <p>NCERT-based learning for Classes 6, 7, 8 & 9</p>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2>📗 Class 6</h2>
+<ul>
+<li><b>Mathematics:</b> Knowing Our Numbers, Whole Numbers, Geometry</li>
+<li><b>Science:</b> Food, Materials, Sorting, Changes Around Us</li>
+<li><b>English:</b> Grammar, Vocabulary, Writing</li>
+<li><b>Social Science:</b> History, Geography, Civics</li>
+</ul>
 </div>
 
-  <div class="container">
+<div class="section">
+<h2>📘 Class 7</h2>
+<ul>
+<li>Maths – Integers, Fractions, Algebra</li>
+<li>Science – Nutrition, Heat, Acids & Bases</li>
+<li>Social Science – Medieval History, Environment</li>
+</ul>
+</div>
 
-    <h1>📘 Student Help Portal</h1>
-    <p>Helping students of Class 6 to 9 study better</p>
+<div class="section">
+<h2>📙 Class 8</h2>
+<ul>
+<li>Maths – Rational Numbers, Linear Equations</li>
+<li>Science – Force, Friction, Crop Production</li>
+<li>SST – Resources, Constitution</li>
+</ul>
+</div>
 
-    <div class="card fade-in fade-delay-1">
-      <h2>📗 Class 6</h2>
-      <p>Basic concepts, chapters and project ideas</p>
-      <div class="btn-group">
-        <button onclick="location.href='class6.html'">Open Class 6</button>
-      </div>
-    </div>
+<div class="section">
+<h2>📕 Class 9</h2>
+<ul>
+<li>Maths – Polynomials, Linear Equations</li>
+<li>Science – Motion, Matter, Life Processes</li>
+<li>SST – French Revolution, Democracy</li>
+</ul>
+</div>
 
-    <div class="card fade-in fade-delay-2">
-      <h2>📘 Class 7</h2>
-      <p>Important chapters, practice topics and projects</p>
-      <div class="btn-group">
-        <button onclick="location.href='class7.html'">Open Class 7</button>
-      </div>
-    </div>
+<a class="button" href="#">⬆ Back to Top</a>
 
-    <div class="card fade-in fade-delay-3">
-      <h2>📙 Class 8</h2>
-      <p>NCERT-based topics for exam preparation</p>
-      <div class="btn-group">
-        <button onclick="location.href='class8.html'">Open Class 8</button>
-      </div>
-    </div>
+</div>
 
-    <div class="card fade-in fade-delay-4">
-      <h2>📕 Class 9</h2>
-      <p>Foundation for boards with clear explanations</p>
-      <div class="btn-group">
-        <button onclick="location.href='class9.html'">Open Class 9</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>💡 Projects</h2>
-      <p>Simple and creative school project ideas</p>
-      <button onclick="location.href='projects.html'">View Projects</button>
-    </div>
-
-    <footer>
-      <p>Made by Bratatee | Student Project</p>
-    </footer>
-
-  </div>
-  <script>
-  window.addEventListener("load", function () {
-    document.getElementById("loader").style.display = "none";
-  });
-  </script>
+<footer>
+Made by a Student • Learning Project
+</footer>
 
 </body>
 </html>
-
-
-
-
-
-
