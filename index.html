@@ -2,160 +2,201 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Learning Hub</title>
+<title>Student Help Portal</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
+/* ===== BASIC RESET ===== */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f7fb;
+  transition:0.3s;
 }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #2e7d32, #66bb6a);
-  color: white;
-  text-align: center;
-  padding: 30px 10px;
-  animation: slideDown 1s ease;
+/* ===== HEADER ===== */
+header{
+  background:#2e7d32;
+  color:white;
+  padding:20px;
+  text-align:center;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 28px;
+/* ===== DARK MODE ===== */
+.dark{
+  background:#121212;
+  color:white;
+}
+.dark .card{
+  background:#1e1e1e;
 }
 
-header p {
-  margin-top: 8px;
-  font-size: 14px;
+/* ===== BUTTON ===== */
+button, a.button{
+  background:#2e7d32;
+  color:white;
+  padding:10px 15px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:10px;
 }
 
-/* Container */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+/* ===== CARD ===== */
+.card{
+  background:white;
+  max-width:700px;
+  margin:20px auto;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Cards */
-.section {
-  background: white;
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  animation: fadeIn 1s ease;
+/* ===== SUBJECT TITLE ===== */
+h2{
+  color:#2e7d32;
 }
 
-.section h2 {
-  margin-top: 0;
-  color: #2e7d32;
+/* ===== LIST ===== */
+ul{
+  text-align:left;
+}
+li{
+  margin:6px 0;
 }
 
-ul {
-  padding-left: 18px;
+/* ===== DARK MODE BUTTON ===== */
+.toggle{
+  position:fixed;
+  top:10px;
+  right:10px;
 }
 
-li {
-  margin: 6px 0;
-}
-
-a {
-  text-decoration: none;
-  color: #1565c0;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Button */
-.button {
-  display: block;
-  width: fit-content;
-  margin: 30px auto;
-  padding: 10px 20px;
-  background: #2e7d32;
-  color: white;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(15px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-@keyframes slideDown {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  font-size: 12px;
-  color: gray;
-  margin-bottom: 15px;
+/* ===== LOADING ===== */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
 }
 </style>
 </head>
 
-<body>
+<body onload="hideLoader()">
+
+<!-- LOADER -->
+<div id="loader">Loading Student Help Portal...</div>
+
+<!-- DARK MODE -->
+<button class="toggle" onclick="document.body.classList.toggle('dark')">
+🌙 Dark Mode
+</button>
 
 <header>
-  <h1>📘 Student Learning Hub</h1>
-  <p>NCERT-based learning for Classes 6, 7, 8 & 9</p>
+<h1>📘 Student Help Portal</h1>
+<p>NCERT Learning • Class 6–9</p>
 </header>
 
-<div class="container">
-
-<div class="section">
+<!-- CLASS 6 -->
+<div class="card">
 <h2>📗 Class 6</h2>
+
+<b>Mathematics</b>
 <ul>
-<li><b>Mathematics:</b> Knowing Our Numbers, Whole Numbers, Geometry</li>
-<li><b>Science:</b> Food, Materials, Sorting, Changes Around Us</li>
-<li><b>English:</b> Grammar, Vocabulary, Writing</li>
-<li><b>Social Science:</b> History, Geography, Civics</li>
+<li>Knowing Our Numbers</li>
+<li>Whole Numbers</li>
+<li>Mensuration</li>
 </ul>
+
+<b>Science</b>
+<ul>
+<li>Food – Where Does It Come From?</li>
+<li>Fibre to Fabric</li>
+<li>Changes Around Us</li>
+</ul>
+
+<button onclick="alert('Class 6 quiz coming soon!')">Start Quiz</button>
 </div>
 
-<div class="section">
+<!-- CLASS 7 -->
+<div class="card">
 <h2>📘 Class 7</h2>
+
+<b>Mathematics</b>
 <ul>
-<li>Maths – Integers, Fractions, Algebra</li>
-<li>Science – Nutrition, Heat, Acids & Bases</li>
-<li>Social Science – Medieval History, Environment</li>
+<li>Integers</li>
+<li>Fractions and Decimals</li>
+<li>Simple Equations</li>
 </ul>
+
+<b>Science</b>
+<ul>
+<li>Nutrition in Plants</li>
+<li>Heat</li>
+<li>Weather and Climate</li>
+</ul>
+
+<button onclick="alert('Class 7 quiz coming soon!')">Start Quiz</button>
 </div>
 
-<div class="section">
+<!-- CLASS 8 -->
+<div class="card">
 <h2>📙 Class 8</h2>
+
+<b>Mathematics</b>
 <ul>
-<li>Maths – Rational Numbers, Linear Equations</li>
-<li>Science – Force, Friction, Crop Production</li>
-<li>SST – Resources, Constitution</li>
+<li>Rational Numbers</li>
+<li>Linear Equations</li>
+<li>Mensuration</li>
 </ul>
+
+<b>Science</b>
+<ul>
+<li>Crop Production</li>
+<li>Force and Pressure</li>
+<li>Sound</li>
+</ul>
+
+<button onclick="alert('Class 8 quiz coming soon!')">Start Quiz</button>
 </div>
 
-<div class="section">
+<!-- CLASS 9 -->
+<div class="card">
 <h2>📕 Class 9</h2>
+
+<b>Mathematics</b>
 <ul>
-<li>Maths – Polynomials, Linear Equations</li>
-<li>Science – Motion, Matter, Life Processes</li>
-<li>SST – French Revolution, Democracy</li>
+<li>Number Systems</li>
+<li>Polynomials</li>
+<li>Coordinate Geometry</li>
 </ul>
+
+<b>Science</b>
+<ul>
+<li>Matter in Our Surroundings</li>
+<li>Motion</li>
+<li>Atoms and Molecules</li>
+</ul>
+
+<button onclick="alert('Class 9 quiz coming soon!')">Start Quiz</button>
 </div>
 
-<a class="button" href="#">⬆ Back to Top</a>
-
+<!-- FOOTER -->
+<div style="text-align:center;margin:30px;">
+<b>© Student Help Portal</b>
 </div>
 
-<footer>
-Made by a Student • Learning Project
-</footer>
+<script>
+function hideLoader(){
+  document.getElementById("loader").style.display="none";
+}
+</script>
 
 </body>
 </html>
+  
