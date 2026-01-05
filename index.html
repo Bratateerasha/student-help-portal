@@ -3,229 +3,209 @@
 <head>
 <meta charset="UTF-8">
 <title>Student Help Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ===== BASIC RESET ===== */
+:root{
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --text:#000;
+  --green:#2e7d32;
+}
+.dark{
+  --bg:#121212;
+  --card:#1e1e1e;
+  --text:#ffffff;
+}
+
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:#f4f7fb;
+  background:var(--bg);
+  color:var(--text);
   transition:0.3s;
 }
 
-/* ===== HEADER ===== */
 header{
-  background:#2e7d32;
+  background:var(--green);
   color:white;
   padding:20px;
   text-align:center;
+  position:relative;
 }
 
-/* ===== DARK MODE ===== */
-.dark{
-  background:#121212;
+nav a{
   color:white;
-}
-.dark .card{
-  background:#1e1e1e;
-}
-
-/* ===== BUTTON ===== */
-button, a.button{
-  background:#2e7d32;
-  color:white;
-  padding:10px 15px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
+  margin:0 10px;
   text-decoration:none;
-  display:inline-block;
-  margin-top:10px;
+  font-weight:bold;
 }
 
-/* ===== CARD ===== */
-.card{
-  background:white;
-  max-width:700px;
-  margin:20px auto;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* ===== SUBJECT TITLE ===== */
-h2{
-  color:#2e7d32;
-}
-
-/* ===== LIST ===== */
-ul{
-  text-align:left;
-}
-li{
-  margin:6px 0;
-}
-
-/* ===== DARK MODE BUTTON ===== */
 .toggle{
-  position:fixed;
-  top:10px;
-  right:10px;
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:#fff;
+  color:#000;
+  border:none;
+  padding:6px 10px;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-/* ===== LOADING ===== */
-#loader{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:15px;
 }
+
+.card{
+  background:var(--card);
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:20px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
+  animation:fade 0.7s ease;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h2{color:var(--green);}
+li{margin:6px 0;}
+
+button{
+  background:var(--green);
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:5px;
+  cursor:pointer;
+  margin-top:5px;
+}
+
+.hidden{display:none;}
+.note{font-size:14px; line-height:1.6;}
 </style>
 </head>
 
-<body onload="hideLoader()">
-
-<!-- LOADER -->
-<div id="loader">Loading Student Help Portal...</div>
-
-<!-- DARK MODE -->
-<button class="toggle" onclick="document.body.classList.toggle('dark')">
-🌙 Dark Mode
-</button>
+<body>
 
 <header>
-  <div style="text-align:center; margin:20px;">
-  <a href="#class6" class="button">Class 6</a>
-  <a href="#class7" class="button">Class 7</a>
-  <a href="#class8" class="button">Class 8</a>
-  <a href="#class9" class="button">Class 9</a>
-</div>
+<button class="toggle" onclick="toggleDark()">🌙</button>
+<nav>
+  <a href="#class6">Class 6</a>
+  <a href="#class7">Class 7</a>
+  <a href="#class8">Class 8</a>
+  <a href="#class9">Class 9</a>
+  <a href="#quiz">Quiz</a>
+</nav>
 <h1>📘 Student Help Portal</h1>
-<p>NCERT Learning • Class 6–9</p>
+<p>NCERT Learning · Class 6–9</p>
 </header>
-<div class="section">
-  <h2>Class 6</h2>
 
-  <h3>Mathematics</h3>
-  <ul>
-    <li><a href="class6-maths.html">Knowing Our Numbers</a></li>
-    <li><a href="class6-maths.html">Whole Numbers</a></li>
-    <li><a href="class6-maths.html">Mensuration</a></li>
-  </ul>
+<div class="container">
 
-  <h3>Science</h3>
-  <ul>
-    <li><a href="class6-science.html">Food – Where Does It Come From?</a></li>
-    <li><a href="class6-science.html">Fibre to Fabric</a></li>
-    <li><a href="class6-science.html">Changes Around Us</a></li>
-  </ul>
+<!-- CLASS 6 -->
+<div class="card" id="class6">
+<h2>🟩 Class 6 Notes</h2>
 
-<a href="quiz-class6.html">
-  <button>Start Quiz</button>
-</a>  
-</div>
-<!-- CLASS 6 --> 
- <div class="card" id="class6"> 
-<a href="class6-science.html"<h2>📗 Class 6</h2>
-
-<b>Mathematics</b>
+<h3>Mathematics</h3>
 <ul>
-<li>Knowing Our Numbers</li>
-<li>Whole Numbers</li>
-<li>Mensuration</li>
+<li><b>Knowing Our Numbers:</b> Place value, estimation, large numbers.</li>
+<li><b>Whole Numbers:</b> Number line, properties of whole numbers.</li>
+<li><b>Mensuration:</b> Perimeter and area of basic shapes.</li>
 </ul>
 
-<b>Science</b>
+<h3>Science</h3>
 <ul>
-<li>Food – Where Does It Come From?</li>
-<li>Fibre to Fabric</li>
-<li>Changes Around Us</li>
+<li><b>Food – Where Does It Come From?</b> Food sources from plants and animals.</li>
+<li><b>Fibre to Fabric:</b> Natural and synthetic fibres.</li>
+<li><b>Changes Around Us:</b> Reversible and irreversible changes.</li>
 </ul>
-
-<button onclick="alert('Class 6 quiz coming soon!')">Start Quiz</button>
 </div>
 
 <!-- CLASS 7 -->
 <div class="card" id="class7">
-<h2>📘 Class 7</h2>
+<h2>🟦 Class 7 Notes</h2>
 
-<b>Mathematics</b>
+<h3>Mathematics</h3>
 <ul>
-<li>Integers</li>
-<li>Fractions and Decimals</li>
-<li>Simple Equations</li>
+<li><b>Integers:</b> Positive and negative numbers.</li>
+<li><b>Fractions & Decimals:</b> Conversion and operations.</li>
+<li><b>Simple Equations:</b> Solving basic equations.</li>
 </ul>
 
-<b>Science</b>
+<h3>Science</h3>
 <ul>
-<li>Nutrition in Plants</li>
-<li>Heat</li>
-<li>Weather and Climate</li>
+<li><b>Nutrition in Plants:</b> Photosynthesis.</li>
+<li><b>Heat:</b> Temperature and heat transfer.</li>
+<li><b>Weather & Climate:</b> Atmospheric conditions.</li>
 </ul>
-
-<button onclick="alert('Class 7 quiz coming soon!')">Start Quiz</button>
 </div>
 
 <!-- CLASS 8 -->
 <div class="card" id="class8">
-<h2>📙 Class 8</h2>
+<h2>🟨 Class 8 Notes</h2>
 
-<b>Mathematics</b>
+<h3>Mathematics</h3>
 <ul>
-<li>Rational Numbers</li>
-<li>Linear Equations</li>
-<li>Mensuration</li>
+<li><b>Rational Numbers:</b> Properties and operations.</li>
+<li><b>Linear Equations:</b> One-variable equations.</li>
+<li><b>Mensuration:</b> Area and volume.</li>
 </ul>
 
-<b>Science</b>
+<h3>Science</h3>
 <ul>
-<li>Crop Production</li>
-<li>Force and Pressure</li>
-<li>Sound</li>
+<li><b>Crop Production:</b> Agricultural practices.</li>
+<li><b>Force & Pressure:</b> Effects of force.</li>
+<li><b>Sound:</b> Vibrations and waves.</li>
 </ul>
-
-<button onclick="alert('Class 8 quiz coming soon!')">Start Quiz</button>
 </div>
 
 <!-- CLASS 9 -->
 <div class="card" id="class9">
-<h2>📕 Class 9</h2>
+<h2>🟥 Class 9 Notes</h2>
 
-<b>Mathematics</b>
+<h3>Science</h3>
 <ul>
-<li>Number Systems</li>
-<li>Polynomials</li>
-<li>Coordinate Geometry</li>
+<li><b>Matter in Our Surroundings:</b> States of matter.</li>
+<li><b>Motion:</b> Distance, speed, velocity.</li>
+<li><b>Force & Laws of Motion:</b> Newton’s laws.</li>
 </ul>
 
-<b>Science</b>
+<h3>Mathematics</h3>
 <ul>
-<li>Matter in Our Surroundings</li>
-<li>Motion</li>
-<li>Atoms and Molecules</li>
+<li><b>Number Systems:</b> Rational & irrational numbers.</li>
+<li><b>Linear Equations:</b> Two variables.</li>
 </ul>
-
-<button onclick="alert('Class 9 quiz coming soon!')">Start Quiz</button>
 </div>
 
-<!-- FOOTER -->
-<div style="text-align:center;margin:30px;">
-<b>© Student Help Portal</b>
+<!-- QUIZ -->
+<div class="card" id="quiz">
+<h2>📝 MCQ Quiz (With Score)</h2>
+
+<p id="q">Q1. Which is a plant fibre?</p>
+<button onclick="answer(true)">Cotton</button>
+<button onclick="answer(false)">Plastic</button>
+
+<p id="score">Score: 0</p>
+</div>
+
 </div>
 
 <script>
-function hideLoader(){
-  document.getElementById("loader").style.display="none";
+let score=0;
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+function answer(correct){
+  if(correct) score++;
+  document.getElementById("score").innerText="Score: "+score;
 }
 </script>
 
 </body>
 </html>
-  
-
-
-
