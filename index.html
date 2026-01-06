@@ -2,211 +2,263 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Student Help Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Help Portal</title>
 
 <style>
 :root{
-  --bg:#f4f6f8;
+  --bg:#f4f8f6;
   --card:#ffffff;
-  --text:#000;
-  --green:#2e7d32;
+  --text:#222;
+  --primary:#2e7d32;
+  --secondary:#1565c0;
 }
+
 .dark{
   --bg:#121212;
   --card:#1e1e1e;
-  --text:#ffffff;
+  --text:#f5f5f5;
 }
+
+*{box-sizing:border-box}
 
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Segoe UI,Arial;
   background:var(--bg);
   color:var(--text);
-  transition:0.3s;
 }
 
 header{
-  background:var(--green);
+  background:linear-gradient(135deg,#2e7d32,#43a047);
   color:white;
-  padding:20px;
   text-align:center;
-  position:relative;
+  padding:40px 15px;
 }
 
-nav a{
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  background:#1b5e20;
+  padding:10px;
+}
+
+nav button{
+  border:none;
+  background:transparent;
   color:white;
-  margin:0 10px;
-  text-decoration:none;
-  font-weight:bold;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+nav button:hover{
+  background:rgba(255,255,255,0.2);
 }
 
 .toggle{
-  position:absolute;
+  position:fixed;
   top:15px;
   right:15px;
-  background:#fff;
-  color:#000;
-  border:none;
-  padding:6px 10px;
-  border-radius:5px;
+  font-size:20px;
   cursor:pointer;
+  background:var(--card);
+  padding:6px 10px;
+  border-radius:50%;
 }
 
 .container{
   max-width:1000px;
   margin:auto;
-  padding:15px;
+  padding:20px;
+}
+
+.search{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  margin-bottom:20px;
 }
 
 .card{
   background:var(--card);
-  padding:15px;
-  border-radius:10px;
+  border-radius:14px;
+  padding:20px;
   margin-bottom:20px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.15);
-  animation:fade 0.7s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-@keyframes fade{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
+.card h2{color:var(--primary)}
+.card h3{margin-bottom:5px}
 
-h2{color:var(--green);}
-li{margin:6px 0;}
+ul{padding-left:20px}
 
-button{
-  background:var(--green);
-  color:white;
+.quiz button,.btn{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
   border:none;
-  padding:8px 15px;
-  border-radius:5px;
+  border-radius:8px;
+  background:var(--primary);
+  color:white;
   cursor:pointer;
-  margin-top:5px;
 }
 
-.hidden{display:none;}
-.note{font-size:14px; line-height:1.6;}
+textarea,input{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+footer{
+  background:#1b5e20;
+  color:white;
+  text-align:center;
+  padding:15px;
+}
 </style>
 </head>
 
 <body>
 
+<div class="toggle" onclick="toggleTheme()">🌙</div>
+
 <header>
-<button class="toggle" onclick="toggleDark()">🌙</button>
-<nav>
-  <a href="#class6">Class 6</a>
-  <a href="#class7">Class 7</a>
-  <a href="#class8">Class 8</a>
-  <a href="#class9">Class 9</a>
-  <a href="#quiz">Quiz</a>
-</nav>
 <h1>📘 Student Help Portal</h1>
 <p>NCERT Learning · Class 6–9</p>
 </header>
 
+<nav>
+<button onclick="home()">Home</button>
+<button onclick="showClass(6)">Class 6</button>
+<button onclick="showClass(7)">Class 7</button>
+<button onclick="showClass(8)">Class 8</button>
+<button onclick="showClass(9)">Class 9</button>
+<button onclick="quiz()">Quiz</button>
+<button onclick="askAI()">Ask Doubt</button>
+<button onclick="about()">About</button>
+<button onclick="contact()">Contact</button>
+</nav>
+
 <div class="container">
-
-<!-- CLASS 6 -->
-<div class="card" id="class6">
-<h2>🟩 Class 6 Notes</h2>
-
-<h3>Mathematics</h3>
-<ul>
-<li><b><a href="knowing-our-numbers.html">Knowing Our Numbers</a>:</b> Place value, estimation, large numbers.</li>
-<li><b>Whole Numbers:</b> Number line, properties of whole numbers.</li>
-<li><b>Mensuration:</b> Perimeter and area of basic shapes.</li>
-</ul>
-
-<h3>Science</h3>
-<ul>
-<li><b>Food – Where Does It Come From?</b> Food sources from plants and animals.</li>
-<li><b>Fibre to Fabric:</b> Natural and synthetic fibres.</li>
-<li><b>Changes Around Us:</b> Reversible and irreversible changes.</li>
-</ul>
+<input class="search" placeholder="Search chapter..." onkeyup="search(this.value)">
+<div id="content"></div>
 </div>
 
-<!-- CLASS 7 -->
-<div class="card" id="class7">
-<h2>🟦 Class 7 Notes</h2>
-
-<h3>Mathematics</h3>
-<ul>
-<li><b>Integers:</b> Positive and negative numbers.</li>
-<li><b>Fractions & Decimals:</b> Conversion and operations.</li>
-<li><b>Simple Equations:</b> Solving basic equations.</li>
-</ul>
-
-<h3>Science</h3>
-<ul>
-<li><b>Nutrition in Plants:</b> Photosynthesis.</li>
-<li><b>Heat:</b> Temperature and heat transfer.</li>
-<li><b>Weather & Climate:</b> Atmospheric conditions.</li>
-</ul>
-</div>
-
-<!-- CLASS 8 -->
-<div class="card" id="class8">
-<h2>🟨 Class 8 Notes</h2>
-
-<h3>Mathematics</h3>
-<ul>
-<li><b>Rational Numbers:</b> Properties and operations.</li>
-<li><b>Linear Equations:</b> One-variable equations.</li>
-<li><b>Mensuration:</b> Area and volume.</li>
-</ul>
-
-<h3>Science</h3>
-<ul>
-<li><b>Crop Production:</b> Agricultural practices.</li>
-<li><b>Force & Pressure:</b> Effects of force.</li>
-<li><b>Sound:</b> Vibrations and waves.</li>
-</ul>
-</div>
-
-<!-- CLASS 9 -->
-<div class="card" id="class9">
-<h2>🟥 Class 9 Notes</h2>
-
-<h3>Science</h3>
-<ul>
-<li><b>Matter in Our Surroundings:</b> States of matter.</li>
-<li><b>Motion:</b> Distance, speed, velocity.</li>
-<li><b>Force & Laws of Motion:</b> Newton’s laws.</li>
-</ul>
-
-<h3>Mathematics</h3>
-<ul>
-<li><b>Number Systems:</b> Rational & irrational numbers.</li>
-<li><b>Linear Equations:</b> Two variables.</li>
-</ul>
-</div>
-
-<!-- QUIZ -->
-<div class="card" id="quiz">
-<h2>📝 MCQ Quiz (With Score)</h2>
-
-<p id="q">Q1. Which is a plant fibre?</p>
-<button onclick="answer(true)">Cotton</button>
-<button onclick="answer(false)">Plastic</button>
-
-<p id="score">Score: 0</p>
-</div>
-
-</div>
+<footer>
+© 2026 Student Help Portal • Made for Students ❤️
+</footer>
 
 <script>
-let score=0;
-function toggleDark(){
+function toggleTheme(){
   document.body.classList.toggle("dark");
 }
-function answer(correct){
-  if(correct) score++;
-  document.getElementById("score").innerText="Score: "+score;
+
+const data={
+6:{
+ Maths:["Knowing Our Numbers","Whole Numbers","Mensuration"],
+ Science:["Food – Where Does It Come From?","Fibre to Fabric"]
+},
+7:{
+ Maths:["Integers","Fractions & Decimals"],
+ Science:["Nutrition in Plants","Heat"]
+},
+8:{
+ Maths:["Rational Numbers","Linear Equations"],
+ Science:["Crop Production","Force and Pressure"]
+},
+9:{
+ Maths:["Number Systems","Polynomials"],
+ Science:["Matter in Our Surroundings","Is Matter Around Us Pure?"]
 }
+};
+
+function home(){
+  content.innerHTML=`
+  <div class="card">
+  <h2>🎯 Welcome</h2>
+  <p>Study NCERT chapters, practice quizzes and ask doubts easily.</p>
+  </div>`;
+}
+
+function showClass(cls){
+  let html=`<div class="card"><h2>📚 Class ${cls}</h2>`;
+  for(let sub in data[cls]){
+    html+=`<h3>${sub}</h3><ul>`;
+    data[cls][sub].forEach(ch=>{
+      html+=`<li>${ch} 
+      <br><small><a href="#">📄 Notes PDF</a></small></li>`;
+    });
+    html+=`</ul>`;
+  }
+  html+=`</div>`;
+  content.innerHTML=html;
+}
+
+function search(val){
+  val=val.toLowerCase();
+  let html="";
+  for(let c in data){
+    for(let s in data[c]){
+      data[c][s].forEach(ch=>{
+        if(ch.toLowerCase().includes(val)){
+          html+=`<div class="card">Class ${c} - ${s}: ${ch}</div>`;
+        }
+      });
+    }
+  }
+  content.innerHTML=html;
+}
+
+function quiz(){
+  content.innerHTML=`
+  <div class="card quiz">
+  <h2>📝 Quiz</h2>
+  <p>Which is a natural fibre?</p>
+  <button onclick="alert('Correct 🎉')">Cotton</button>
+  <button onclick="alert('Wrong ❌')">Nylon</button>
+  </div>`;
+}
+
+function askAI(){
+  content.innerHTML=`
+  <div class="card">
+  <h2>🤖 Ask Your Doubt</h2>
+  <textarea id="q" placeholder="Type your question..."></textarea>
+  <button class="btn" onclick="aiAnswer()">Ask</button>
+  <p id="ans"></p>
+  </div>`;
+}
+
+function aiAnswer(){
+  let q=document.getElementById("q").value.toLowerCase();
+  let a="I am learning. Please check NCERT book 😊";
+  if(q.includes("photosynthesis")) a="Photosynthesis is the process by which plants make food using sunlight.";
+  document.getElementById("ans").innerText=a;
+}
+
+function about(){
+  content.innerHTML=`
+  <div class="card">
+  <h2>ℹ️ About</h2>
+  <p>This portal helps students learn NCERT topics easily.</p>
+  </div>`;
+}
+
+function contact(){
+  content.innerHTML=`
+  <div class="card">
+  <h2>📩 Contact</h2>
+  <p>Email: studenthelp@example.com</p>
+  </div>`;
+}
+
+home();
 </script>
 
 </body>
 </html>
-
